@@ -65,7 +65,7 @@
           </summary>
 
           <ul class="links">
-            <li><a href="#">About lll</a></li>
+            <li><a href="#">About</a></li>
             <li><a href="#">Privacy</a></li>
             <li><a href="#">Terms</a></li>
             <li><a href="#">Other</a></li>
@@ -83,23 +83,26 @@
           }
         </script>
 
-        <div class="social-icons">
-          <a href="#">
-            <i class="fab fa-facebook-f"> </i>
-          </a>
-          <a href="#">
-            <i class="fab fa-twitter"> </i>
-          </a>
-          <a href="#">
-            <i class="fab fa-instagram"> </i>
-          </a>
-        </div>
-        <div class="location">
-          <div class="adress">
-            NYC 777 st - 117477
+        <div class="bottom">
+          <div class="location">
+            <div class="adress">
+              NYC 777 st - 117477
+            </div>
+            <div class="phone-number">
+              <a href="tel:123-456-7890">123-456-7890</a>
+            </div>
           </div>
-          <div class="phone-number">
-            <a href="tel:123-456-7890">123-456-7890</a>
+
+          <div class="social-icons">
+            <a href="#">
+              <i class="fab fa-facebook-f"> </i>
+            </a>
+            <a href="#">
+              <i class="fab fa-twitter"> </i>
+            </a>
+            <a href="#">
+              <i class="fab fa-instagram"> </i>
+            </a>
           </div>
         </div>
       </div>
@@ -165,21 +168,69 @@
 
     <section class="food-preview">
       <h2 class="">Take a look below</h2>
-      <div class="button-rounded">View Our Menu</div>
+      <a href="#products">
+        <div class="button-rounded">View Our Menu</div>
+      </a>
     </section>
 
-    <section id="products" class="food">
-      <div class="food__card">
-        <img src="./images/burger.png" alt="burger" />
-      </div>
-      <div class="">
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos quisquam ipsa, praesentium
-          cum fuga amet tempore reprehenderit earum nihil repellat suscipit culpa impedit minima
-          magnam ab! Nostrum nemo veritatis magni.
-        </p>
-      </div>
+    <section id="products" class="food-menu">
+      <section class="food">
+        <div class="food__title">
+          <h2>Burgers</h2>
+        </div>
+
+        <div class="food__image">
+          <img src="./images/burger.png" alt="burger" />
+        </div>
+      </section>
+
+      <section class="food">
+        <div class="food__title">
+          <h2>Pizzas</h2>
+        </div>
+
+        <div class="food__image">
+          <img src="./images/pizza.png" alt="pizza" />
+        </div>
+      </section>
+
+      <section class="food">
+        <div class="food__title">
+          <h2>Drinks</h2>
+        </div>
+
+        <div class="food__image drink">
+          <img src="./images/drink.png" alt="drink" />
+        </div>
+      </section>
+      <section class="food">
+        <div class="food__title">
+          <h2>Dessert</h2>
+        </div>
+        <div class="food__image">
+          <img src="./images/dessert.png" alt="dessert" />
+        </div>
+      </section>
+
+      <section class="food">
+        <div class="food__title">
+          <h2>Entrees</h2>
+        </div>
+
+        <div class="food__image">
+          <img src="./images/fries.png" alt="fries" />
+        </div>
+      </section>
     </section>
+
+    <footer class="footer">
+      <ul>
+        <li>Home</li>
+        <li>About</li>
+        <li>Contact</li>
+        <li>FAQ</li>
+      </ul>
+    </footer>
 
     <script src="/js/dist/main.js"></script>
   </body>
