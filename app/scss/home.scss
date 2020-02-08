@@ -379,21 +379,25 @@ nav {
         width     : 100%;
         object-fit: cover;
       }
-
-      @media(min-width: 1135px) {}
     }
   }
 
   .info {
-    padding       : 20px;
     position      : absolute;
     display       : flex;
+    align-items   : center;
     flex-direction: column;
     top           : 0;
     left          : 0;
     height        : 100vh;
+    width         : 100vw;
+
 
     @media(min-width: 768px) {
+      padding    : 20px;
+      width      : unset;
+      align-items: unset;
+
       position: relative;
       height  : unset;
     }
@@ -465,7 +469,7 @@ nav {
       position        : absolute;
       display         : flex;
       flex-direction  : column;
-      bottom          : 100px;
+      bottom          : 140px;
       opacity         : 0;
       color           : #fff;
       left            : 1000px;
@@ -499,6 +503,9 @@ nav {
     }
 
     .about-link {
+      animation      : bounce .5s ease-out infinite alternate;
+      position       : absolute;
+      bottom         : 0;
       text-decoration: none;
       color          : #000;
       font-weight    : 700;
@@ -506,28 +513,24 @@ nav {
       display        : flex;
       justify-content: center;
       align-items    : center;
+      width          : fit-content;
+      margin         : auto;
 
-      span {
-        position: absolute;
-        bottom  : 50px;
-
-        @media(min-width: 768px) {
-          position    : relative;
-          margin-right: 20px;
-        }
+      @media(min-width: 768px) {
+        position  : relative;
+        margin-top: 100px;
       }
 
       .circle-right {
-        display         : flex;
-        justify-content : center;
-        align-items     : center;
         height          : 40px;
         width           : 40px;
         background-color: #ed4852;
         border-radius   : 50%;
         background-image: radial-gradient(ellipse at center, #ed4852 0%, #9c1b24 100%);
+        transition      : all 1s ease;
 
         .fas {
+          margin   : 10px 11px;
           color    : #fff;
           font-size: 1.3rem;
         }
@@ -549,146 +552,6 @@ nav {
 
     img {
       width: 100%;
-    }
-  }
-}
-
-.food-preview {
-  background     : #f4f8fb;
-  padding        : 100px;
-  display        : flex;
-  justify-content: center;
-  flex-direction : column;
-  align-items    : center;
-
-  h2 {
-    text-align: center;
-  }
-
-  .button-rounded {
-    background   : #ed4852;
-    color        : #fff;
-    display      : inline-block;
-    padding      : 15px;
-    border-radius: 30px;
-    margin-bottom: 100px;
-  }
-
-  .container {
-    width          : 100%;
-    max-width      : 1400px;
-    display        : flex;
-    align-items    : center;
-    justify-content: center;
-    position       : relative;
-    overflow       : hidden;
-
-
-    .left-btn,
-    .right-btn {
-      background     : red;
-      color          : #fff;
-      height         : 50px;
-      width          : 50px;
-      position       : absolute;
-      display        : inline-block;
-      display        : flex;
-      z-index        : 5;
-      justify-content: center;
-      align-items    : center;
-    }
-
-    .left-btn {
-      left: 0;
-    }
-
-    .right-btn {
-      right: 0;
-    }
-  }
-
-  .food-slider {
-    overflow-x   : scroll;
-    overflow-y   : hidden;
-    width        : 100vw;
-    max-width    : 1440px;
-    margin-bottom: -2rem;
-    font-size    : 0;
-    white-space  : nowrap;
-
-    .slide {
-      white-space: normal;
-      display    : inline-block;
-      width      : 20vw;
-      position   : relative;
-      height     : 500px;
-      cursor     : pointer;
-
-      &:hover {
-        .background {
-          background: #ed4852;
-          transform : translateY(-150px);
-        }
-
-        .content {
-
-
-          .food-title {
-            color: #fff;
-          }
-
-          .food-description {
-            color: #fff;
-          }
-        }
-
-
-
-      }
-
-      .background {
-        height    : 100%;
-        width     : 100%;
-        background: #fff;
-        z-index   : 1;
-        position  : absolute;
-        top       : 0;
-        bottom    : 0;
-        transition: transform .5s ease-in-out;
-      }
-
-      .content {
-        position       : absolute;
-        z-index        : 2;
-        padding        : 20px;
-        width          : 100%;
-        display        : flex;
-        flex-direction : column;
-        align-items    : center;
-        justify-content: center;
-        transition     : transform .5s ease-in-out;
-
-
-        .food-title {
-          color        : #ed4852;
-          font-size    : 2rem;
-          font-weight  : 700;
-          margin-bottom: 3rem;
-        }
-
-        .food-description {
-          font-size    : .8rem;
-          font-weight  : 400;
-          margin-bottom: 3rem;
-          line-height  : 1.8;
-          color        : #7a8d99;
-        }
-      }
-
-      img {
-        width    : 95%;
-        max-width: 250px;
-      }
     }
   }
 }
