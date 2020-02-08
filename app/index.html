@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>BBQ - BETTER BURGER QUICK</title>
+    <meta property="og:title" content="The best burger ever" />
+    <meta name="description" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="https://codingphase.com/img/websitethumb.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:site_name" content="CodingPhase LLC" />
+    <meta
+      name="twitter:image:alt"
+      content="Learn how to code from one of the best platforms online."
+    />
+    <meta name="twitter:site" content="@codingphase" />
+    <meta property="og:url" content="https://codingphase.com" />
+    <link rel="canonical" href="/" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ad38f1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/img/icons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/icons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/iconsfavicon-16x16.png" />
+    <link rel="mask-icon" href="/img/icons/safari-pinned-tab.svg" color="#5bbad5" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="stylesheet" href="/css/home.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://kit.fontawesome.com/e824462119.js" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <section class="welcome">
+      <nav class="nav">
+        <div class="burger">
+          <div class="burger__btn"></div>
+        </div>
+      </nav>
+
+      <div class="welcome__menu">
+        <div class="logo">
+          <img alt="restaurant logo" src="./images/logo.png" />
+        </div>
+
+        <details class="menu" open>
+          <summary class="menu__title">
+            Menu
+          </summary>
+          <ul class="links">
+            <li><a href="#">Menu</a></li>
+            <li><a href="#">Waitlist</a></li>
+            <li><a href="#">Offers</a></li>
+            <li><a href="#">Giftcards</a></li>
+          </ul>
+        </details>
+        <details class="menu">
+          <summary class="menu__title">
+            About
+          </summary>
+
+          <ul class="links">
+            <li><a href="#">About lll</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Other</a></li>
+          </ul>
+        </details>
+
+        <script>
+          const burger = document.querySelector(".burger");
+          const welcomeMenu = document.querySelector(".welcome__menu");
+          burger.addEventListener("click", toggleMenu);
+
+          function toggleMenu(e) {
+            welcomeMenu.classList.toggle("open");
+            burger.children[0].classList.toggle("open");
+          }
+        </script>
+
+        <div class="social-icons">
+          <a href="#">
+            <i class="fab fa-facebook-f"> </i>
+          </a>
+          <a href="#">
+            <i class="fab fa-twitter"> </i>
+          </a>
+          <a href="#">
+            <i class="fab fa-instagram"> </i>
+          </a>
+        </div>
+        <div class="location">
+          <div class="adress">
+            NYC 777 st - 117477
+          </div>
+          <div class="phone-number">
+            <a href="tel:123-456-7890">123-456-7890</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="welcome__jumbo">
+        <div class="container">
+          <div class="tick">
+            <div class="body">
+              <div class="bar"></div>
+              <div class="status">NEW</div>
+            </div>
+            <div class="square">
+              <div class="circle"></div>
+            </div>
+          </div>
+          <h1 class="burger-of-the-day__title">Super Cheeseburger</h1>
+          <img class="burger-of-the-day__image" src="./images/burgerOfTheDay.png" />
+        </div>
+      </div>
+    </section>
+
+    <section class="information">
+      <div class="restaurant-image">
+        <img src="./images/burger-distance.png" alt="restaurant" />
+      </div>
+      <div class="info">
+        <h2><span> The </span>best ingredients</h2>
+
+        <div class="paragraphs">
+          <p>
+            Our especialist team selects the fresher ones, so we ensure you're eating the best
+            burger. Ever!
+          </p>
+        </div>
+
+        <a href="#products" class="about-link">
+          <div class="circle-right">
+            <i class="fas fa-chevron-down"></i>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <script>
+      const restaurantImage = document.querySelector(".restaurant-image");
+      window.addEventListener("scroll", check);
+      const title = document.querySelector(".info h2");
+      const text = document.querySelector(".paragraphs");
+
+      function check(e) {
+        // when reach close top
+        if (window.pageYOffset + 80 > restaurantImage.offsetHeight) {
+          restaurantImage.children[0].classList.add("open");
+          title.classList.add("open");
+          text.classList.add("open");
+        } else {
+          restaurantImage.children[0].classList.remove("open");
+          title.classList.remove("open");
+          text.classList.remove("open");
+        }
+      }
+    </script>
+
+    <section class="food-preview">
+      <h2 class="">We have everything you need</h2>
+      <div class="button-rounded">View Our Menu</div>
+    </section>
+
+    <section id="products" class="food">
+      <div class="food__card">
+        <img src="./images/burger.png" alt="burger" />
+      </div>
+      <div class="">
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos quisquam ipsa, praesentium
+          cum fuga amet tempore reprehenderit earum nihil repellat suscipit culpa impedit minima
+          magnam ab! Nostrum nemo veritatis magni.
+        </p>
+      </div>
+    </section>
+
+    <script src="/js/dist/main.js"></script>
+  </body>
+</html>
