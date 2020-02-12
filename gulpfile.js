@@ -58,7 +58,7 @@ gulp.task("sass", function() {
 gulp.task("watch", function() {
   gulp.watch("app/scss/**/*.scss", gulp.parallel("sass"));
   gulp.watch("app/js/**/*.js", gulp.parallel("js"));
-  gulp.watch("app/*.+(xml|json)", gulp.parallel("copy"));
+  gulp.watch("app/*.+(xml|json|ico)", gulp.parallel("copy"));
   gulp.watch("app/*.html", gulp.parallel("useref"));
   gulp.watch(["dist/*.html", "dist/js/**/*.js"]).on("change", browserSync.reload);
 });
