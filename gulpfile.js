@@ -135,5 +135,5 @@ gulp.task(
 );
 
 gulp.task("build", function(callback) {
-  runSequence("clean:dist", "sass", ["useref", "images", "fonts"], callback);
+  runSequence("clean:dist", "sass", "js", "useref", "images", "copy", "icons", callback);
 });
