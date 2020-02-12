@@ -13,8 +13,7 @@ html {
 }
 
 body {
-  width : 100%;
-  height: 100%;
+  overflow-x: hidden;
 }
 
 h2 {
@@ -112,13 +111,14 @@ nav {
   bottom          : 0;
   height          : calc(100vh - 59px);
   z-index         : 5;
-  background-color: #efefef;
+  background-color: #fff;
   transition      : left .5s ease;
   padding         : 0 30px;
   overflow        : hidden;
   display         : flex;
+  flex-wrap       : wrap;
   flex-direction  : column;
-  align-items     : center;
+
 
   &.open {
     overflow: hidden;
@@ -137,26 +137,30 @@ nav {
 
 
   .menu {
-    margin-bottom: 20px;
     transition   : all 1s linear;
+    margin-bottom: 30px;
+
+    &:last-of-type {
+      margin-bottom: 70px;
+    }
 
     .menu__title {
       text-decoration: none;
+      margin-bottom  : 10px;
       text-transform : uppercase;
       color          : #9c1b24;
       width          : fit-content;
       font-weight    : 700;
       cursor         : pointer;
-      font-size      : 1.4rem;
-      margin-bottom  : 10px;
-
-
+      font-size      : 1.3rem;
     }
 
     .links {
       width           : 3px;
       height          : 80%;
       background-color: red;
+      display         : flex;
+      flex-direction  : row;
 
       li {
         padding-left: 10px;
@@ -166,7 +170,6 @@ nav {
           color          : #333;
           font-size      : 1.2rem;
           text-decoration: none;
-          margin-bottom  : 10px;
           display        : block;
           transition     : color .3s ease-in-out;
 
@@ -190,13 +193,13 @@ nav {
   }
 
   .bottom {
-    bottom         : 2vh;
+
     text-align     : center;
-    display        : flex;
-    justify-content: center;
     align-items    : center;
+    justify-content: center;
+    display        : flex;
     flex-direction : column-reverse;
-    position       : absolute;
+
 
 
     @media(min-width: 900px) {
@@ -240,7 +243,7 @@ nav {
         font-size      : 1.6rem;
         font-weight    : 700;
         text-decoration: none;
-        color          : #0971ce;
+        color          : #9c1b24;
       }
     }
   }
@@ -357,8 +360,9 @@ nav {
     position       : absolute;
     animation      : bounce 1s linear infinite alternate;
     width          : 100%;
-    bottom         : 60px;
     max-width      : 400px;
+    bottom         : 60px;
+
 
     @media(min-width: 900px) {
       max-width: 450px;
