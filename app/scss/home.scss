@@ -1,16 +1,20 @@
 * {
-  padding    : 0;
-  margin     : 0;
-  list-style : none;
-  box-sizing : border-box;
-  font-family: 'Montserrat', sans-serif;
+  padding   : 0;
+  margin    : 0;
+  list-style: none;
+  box-sizing: border-box;
 }
 
 html {
-  height         : 100vh;
-  width          : 100vw;
-  overflow-x     : hidden;
-  scroll-behavior: smooth;
+  height     : 100vh;
+  width      : 100vw;
+  overflow-x : hidden;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  width : 100%;
+  height: 100%;
 }
 
 h2 {
@@ -35,15 +39,20 @@ nav {
 }
 
 .burger {
-  display        : flex;
-  align-items    : center;
-  justify-content: center;
-  position       : absolute;
-  top            : 0;
-  left           : 0;
-  width          : 60px;
-  height         : 60px;
-  cursor         : pointer;
+  all             : unset;
+  display         : flex;
+  align-items     : center;
+  border          : none;
+  background-color: transparent;
+  justify-content : center;
+  padding         : 0;
+  margin          : 0;
+  position        : absolute;
+  top             : 0;
+  left            : 0;
+  width           : 60px;
+  height          : 60px;
+  cursor          : pointer;
 }
 
 .burger__btn {
@@ -99,24 +108,27 @@ nav {
   width           : 100vw;
   left            : -100vw;
   position        : fixed;
+  top             : 60px;
   bottom          : 0;
-  height          : calc(100vh - 60px);
-  z-index         : 2;
+  height          : calc(100vh - 59px);
+  z-index         : 5;
   background-color: #efefef;
   transition      : left .5s ease;
   padding         : 0 30px;
   overflow        : hidden;
+  display         : flex;
+  flex-direction  : column;
+  align-items     : center;
 
   &.open {
-    left: 0;
+    overflow: hidden;
+    left    : 0;
   }
 
   @media(min-width: 768px) {
     padding-top: 50px;
     width      : unset;
     height     : unset;
-    left       : unset;
-    display    : block;
     left       : unset;
     top        : unset;
     grid-area  : menu;
@@ -135,7 +147,7 @@ nav {
       width          : fit-content;
       font-weight    : 700;
       cursor         : pointer;
-      font-size      : 1.2rem;
+      font-size      : 1.4rem;
       margin-bottom  : 10px;
 
 
@@ -151,8 +163,8 @@ nav {
 
         a {
           width          : fit-content;
-          color          : #000;
-          font-size      : 1.1rem;
+          color          : #333;
+          font-size      : 1.2rem;
           text-decoration: none;
           margin-bottom  : 10px;
           display        : block;
@@ -168,12 +180,28 @@ nav {
   }
 
   .logo {
+    padding        : 20px 0 40px;
     display        : flex;
     justify-content: center;
 
-
     img {
       max-width: 200px;
+    }
+  }
+
+  .bottom {
+    bottom         : 2vh;
+    text-align     : center;
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+    flex-direction : column-reverse;
+    position       : absolute;
+
+
+    @media(min-width: 900px) {
+      flex-direction: row;
+      align-items   : center;
     }
   }
 
@@ -191,19 +219,7 @@ nav {
       color          : #fff;
       height         : 30px;
       width          : 30px;
-      margin-right   : 10px;
-    }
-  }
-
-  .bottom {
-    bottom        : 2vh;
-    display       : flex;
-    flex-direction: column-reverse;
-    position      : absolute;
-
-    @media(min-width: 900px) {
-      flex-direction: row;
-      align-items   : center;
+      margin         : 0 5px;
     }
   }
 
@@ -352,11 +368,11 @@ nav {
 
 @keyframes bounce {
   0% {
-    bottom: 60px;
+    transform: translateY(-30px);
   }
 
   100% {
-    bottom: 80px;
+    transform: translateY(-50px);
   }
 }
 
@@ -387,12 +403,6 @@ nav {
       width     : 100vw;
       object-fit: cover;
 
-      &.open {
-        @media(max-width: 768px) {
-          filter: blur(2px);
-        }
-      }
-
       @media(min-width: 768px) {
         height    : 100%;
         width     : 100%;
@@ -402,23 +412,21 @@ nav {
   }
 
   .info {
-    position      : absolute;
     display       : flex;
     align-items   : center;
     flex-direction: column;
-    top           : 0;
-    left          : 0;
     height        : 100vh;
     width         : 100vw;
+    margin        : -100vh 0 0 0;
 
 
     @media(min-width: 768px) {
+      margin     : 0;
       padding    : 20px;
       width      : unset;
       align-items: unset;
-
-      position: relative;
-      height  : unset;
+      position   : relative;
+      height     : unset;
     }
 
     h2 {
@@ -433,7 +441,6 @@ nav {
       border-radius   : 5px;
       text-align      : right;
       padding-right   : 20px;
-      left            : -1000px;
       opacity         : 0;
       transition      : all 1s ease;
 
@@ -450,23 +457,6 @@ nav {
           height          : 15px;
           background-color: #ed4852;
           z-index         : -1;
-        }
-      }
-
-      &.open {
-        opacity: 1;
-        left   : 20vw;
-
-        @media(min-width: 400px) {
-          left: 40vw;
-        }
-
-        @media(min-width: 550px) {
-          left: 50vw;
-        }
-
-        @media(min-width: 768px) {
-          left: unset;
         }
       }
 
@@ -491,22 +481,12 @@ nav {
       bottom          : 140px;
       opacity         : 0;
       color           : #fff;
-      left            : 1000px;
       font-weight     : bold;
       background-image: radial-gradient(ellipse at center, #002a3220, #ffffff00);
       border-radius   : 5px;
       transition      : all 1s ease;
       font-size       : 1.3rem;
       width           : 70vw;
-
-      &.open {
-        opacity: 1;
-        left   : 50px;
-
-        @media(min-width: 768px) {
-          left: 0;
-        }
-      }
 
       @media(min-width: 768px) {
         left            : 0;
@@ -522,9 +502,7 @@ nav {
     }
 
     .about-link {
-      animation      : bounce .5s ease-out infinite alternate;
       position       : absolute;
-      bottom         : 0;
       text-decoration: none;
       color          : #000;
       font-weight    : 700;
@@ -532,8 +510,11 @@ nav {
       display        : flex;
       justify-content: center;
       align-items    : center;
-      width          : fit-content;
-      margin         : auto;
+      width          : 60px;
+      height         : 60px;
+      bottom         : 0;
+      margin         : 0 auto;
+      animation      : bounce .5s ease-out infinite alternate;
 
       @media(min-width: 768px) {
         position  : relative;
