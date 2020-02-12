@@ -10,11 +10,7 @@ var imagemin = require("gulp-imagemin");
 var cache = require("gulp-cache");
 var del = require("del");
 var runSequence = require("gulp4-run-sequence");
-
-// Basic Gulp task syntax
-gulp.task("hello", function() {
-  console.log("Hello Zell!");
-});
+var babel = require("gulp-babel");
 
 // Development Tasks
 // -----------------
@@ -29,6 +25,19 @@ gulp.task("browserSync", function() {
       baseDir: "dist"
     }
   });
+});
+
+gulp.task("copy", function() {
+  return gulp.src("app/*.+(xml|json)").pipe(gulp.dest("dist"));
+});
+
+// Parse and compress js
+gulp.task("js", function() {
+  return gulp
+    .src("app/js/**/*.js")
+    .pipe(babel())
+    .pipe(uglify())
+    .pipe(gulp.dest("dist/js"));
 });
 
 gulp.task("sass", function() {
@@ -48,6 +57,8 @@ gulp.task("sass", function() {
 // Watchers
 gulp.task("watch", function() {
   gulp.watch("app/scss/**/*.scss", gulp.parallel("sass"));
+  gulp.watch("app/js/**/*.js", gulp.parallel("js"));
+  gulp.watch("app/*.+(xml|json)", gulp.parallel("copy"));
   gulp.watch("app/*.html", gulp.parallel("useref"));
   gulp.watch(["dist/*.html", "dist/js/**/*.js"]).on("change", browserSync.reload);
 });
@@ -70,7 +81,7 @@ gulp.task("useref", function() {
 gulp.task("images", function() {
   return (
     gulp
-      .src("app/images/**/*.+(png|jpg|jpeg|gif|svg)")
+      .src("app/images/*.+(png|jpg|jpeg|gif|svg)")
       // Caching images that ran through imagemin
       .pipe(
         cache(
@@ -86,6 +97,13 @@ gulp.task("images", function() {
       )
       .pipe(gulp.dest("dist/images"))
   );
+});
+
+gulp.task("icons", function() {
+  return gulp
+    .src("app/icons/*.png")
+    .pipe(cache(imagemin([imagemin.optipng({optimizationLevel: 5})])))
+    .pipe(gulp.dest("dist/icons"));
 });
 
 // Copying fonts
@@ -109,7 +127,10 @@ gulp.task("clean:dist", function() {
 
 gulp.task(
   "default",
-  gulp.parallel([gulp.series(["sass", "images", "useref", "watch"]), gulp.series(["browserSync"])])
+  gulp.parallel([
+    gulp.series(["js", "sass", "images", "icons", "copy", "useref", "watch"]),
+    gulp.series(["browserSync"])
+  ])
   // runSequence('sass', 'images', 'useref', 'browserSync', 'watch')
 );
 
