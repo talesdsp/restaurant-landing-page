@@ -19,6 +19,8 @@
     <meta http-equiv="Expires" content="0" />
 
     <!--  FAVICON   -->
+
+    <link rel="icon" href="favicon.ico" />
     <link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-icon-57x57.png" />
     <link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-icon-60x60.png" />
     <link rel="apple-touch-icon" sizes="72x72" href="/icons/apple-icon-72x72.png" />
@@ -32,10 +34,13 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
-    <link rel="manifest" href="/manifest.json" />
-    <meta name="msapplication-config" content="/icons/browserconfig.xml" />
-    <meta name="msapplication-TileColor" content="#ed4852" />
-    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+
+    <!--  PWA   -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#ed4852" />
+    <meta name="apple-mobile-web-app-title" content="Best Burger" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="msapplication-config" content="browserconfig.xml" />
 
     <!--  STYLESHEET  -->
     <link rel="stylesheet" href="/css/home.css" />
@@ -69,7 +74,7 @@
     <section class="welcome" aria-label="Welcome">
       <div class="welcome__menu" id="menu section" aria-label="Menu Section">
         <div class="logo">
-          <img alt="restaurant logo" src="./icons/android-icon-72x72.png" />
+          <img alt="restaurant logo" src="/icons/android-icon-72x72.png" />
         </div>
 
         <details class="menu" open>
@@ -245,6 +250,7 @@
 
     <!--  SCRIPTS   -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="./js/index.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>

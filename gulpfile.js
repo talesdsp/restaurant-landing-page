@@ -28,7 +28,7 @@ gulp.task("browserSync", function() {
 });
 
 gulp.task("copy", function() {
-  return gulp.src("app/*.+(xml|json)").pipe(gulp.dest("dist"));
+  return gulp.src("app/*.+(xml|json|ico)").pipe(gulp.dest("dist"));
 });
 
 // Parse and compress js
