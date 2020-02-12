@@ -3,7 +3,6 @@ const welcomeMenu = document.querySelector(".welcome__menu");
 burger.addEventListener("click", toggleMenu);
 
 document.addEventListener("aos:in:my-filter", ({detail}) => {
-  console.log();
   detail.style.filter = "blur(3px)";
 });
 
@@ -45,7 +44,6 @@ function smooth(target, duration) {
 anchor.forEach((v) => {
   v.addEventListener("click", function(evt) {
     let target = document.querySelector(this.hash);
-    console.log(target);
     evt.preventDefault();
     smooth(target, 800);
     setTimeout(() => addFocus(target), 1000);
@@ -54,12 +52,9 @@ anchor.forEach((v) => {
 
 function addFocus(t) {
   t.focus();
-  console.log(document.activeElement);
   if (document.activeElement === t) {
-    console.log("added");
     return false;
   } else {
-    console.log("try again");
     t.setAttribute("tabindex", "-1"); // Adding tabindex for elements not focusable
     t.focus(); // Set focus again
   }
