@@ -119,7 +119,7 @@ gulp.task("clean", function() {
 });
 
 gulp.task("clean:dist", function() {
-  return del(["dist/**/*", "!dist/images", "!dist/images/**/*"]);
+  return del(["dist/**/*", "!dist/icons", "!dist/icons/**/*", "!dist/images", "!dist/images/**/*"]);
 });
 
 // Build Sequences
