@@ -3,7 +3,7 @@ const welcomeMenu = document.querySelector(".welcome__menu");
 burger.addEventListener("click", toggleMenu);
 
 document.addEventListener("aos:in:my-filter", ({detail}) => {
-  detail.style.filter = "blur(3px)";
+  setTimeout(() => detail.setAttribute("src", "images/burger-distance-blur.png"), 1000);
 });
 
 function toggleMenu(e) {
