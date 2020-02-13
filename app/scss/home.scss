@@ -359,7 +359,7 @@ nav {
     justify-content: center;
     position       : absolute;
     animation      : bounce 1s linear infinite alternate;
-    width          : 100%;
+    width          : 90%;
     max-width      : 400px;
     bottom         : 60px;
 
@@ -414,6 +414,8 @@ nav {
       }
     }
   }
+
+
 
   .info {
     display       : flex;
